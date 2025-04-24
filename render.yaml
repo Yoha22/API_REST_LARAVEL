@@ -1,22 +1,5 @@
 services:
   - type: web
     name: laravel-api
-    env: php
-    plan: free
-    buildCommand: |
-      composer install --no-dev --optimize-autoloader
-      php artisan key:generate
-      php artisan config:cache
-      touch /data/database.sqlite
-    startCommand: php artisan serve --host=0.0.0.0 --port=10000
-    envVars:
-      - key: APP_ENV
-        value: production
-      - key: APP_DEBUG
-        value: false
-      - key: APP_KEY
-        generateValue: true
-      - key: DB_CONNECTION
-        value: sqlite
-      - key: DB_DATABASE
-        value: /data/database.sqlite
+    env: docker
+    plan: free    
