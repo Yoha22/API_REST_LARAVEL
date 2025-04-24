@@ -22,6 +22,7 @@ RUN cp .env.example .env
 RUN composer install --no-dev --optimize-autoloader \
     && php artisan config:clear \
     && php artisan key:generate \
+    && php artisan migrate --force \
     && php artisan config:cache
 
 EXPOSE 10000
