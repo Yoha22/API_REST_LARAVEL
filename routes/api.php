@@ -1,8 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use \Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\studentController;
+
+Route::get('/migrar', function () {
+    Artisan::call('migrate', ['--force' => true]);
+    return 'Migración ejecutada';
+});
 
 Route::get('/students', [studentController::class, 'index']);
 
