@@ -164,7 +164,7 @@ class studentController extends Controller
 
         $validator = Validator::make($request->all(), [
             'name' => 'max:255',
-            'email' => 'email|unique:student',
+            'email' => 'email|unique:student,email,' . $student->id,
             'phone' => 'digits:10',
             'language' => 'in:English,Spanish,French'
         ]);
